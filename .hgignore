@@ -3,4 +3,4 @@ DerivedData
 
 .DS_Store
 /Results/*
-/Arguments/*.json
+/Arguments
