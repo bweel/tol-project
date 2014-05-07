@@ -1,0 +1,109 @@
+#VRML_SIM V7.3.0 utf8
+WorldInfo {
+  info [
+    "Description"
+    "Author: first name last name <e-mail>"
+    "Date: DD MMM YYYY"
+  ]
+  title "Roombot H14"
+  contactProperties [
+    ContactProperties {
+      material1 "floor"
+      coulombFriction 0.6
+      bounce 0.1
+    }
+  ]
+}
+Viewpoint {
+  orientation -0.620844 -0.496581 -0.606598 2.28101
+  position 0.388826 1.83819 -0.22177
+  follow "Roombot_H14:12"
+}
+Background {
+  skyColor [
+    0.4 0.7 1
+  ]
+}
+DirectionalLight {
+  direction 0.57735 -1 0.57735
+}
+SquareArena {
+  contactMaterial "floor"
+  planSize 1000 1000
+  planTextureUrl [
+    "textures/grid.png"
+  ]
+  planTextureScale 1000 1000
+  planColor 0.3 0.3 0.3
+  wallXTranslation 500 0.05 0
+  wallSize 0.01 0.5 1000
+  wallColor 0.1 0.1 0.1
+}
+Roombot {
+  translation 0.111 0.058 0
+  rotation 1 0 0 1.5708
+  controller "ToLController"
+  controllerArgs "../../Arguments/Roombot_H14_MxVK1K8py98IKxHc.json"
+  name "Roombot_H14:6"
+  C0XLocked TRUE
+  C2ZLocked TRUE
+  C3XLocked TRUE
+}
+Roombot {
+  translation 0.111 0.058 0.221
+  rotation 1 0 0 1.5708
+  controller "ToLController"
+  controllerArgs "../../Arguments/Roombot_H14_MxVK1K8py98IKxHc.json"
+  name "Roombot_H14:7"
+  C3XLocked TRUE
+}
+Roombot {
+  translation 0.111 0.058 -0.221
+  rotation 1 0 0 1.5708
+  controller "ToLController"
+  controllerArgs "../../Arguments/Roombot_H14_MxVK1K8py98IKxHc.json"
+  name "Roombot_H14:8"
+  C0XLocked TRUE
+}
+Roombot {
+  translation -0.221 0.058 0
+  rotation 1 0 0 1.5708
+  controller "ToLController"
+  controllerArgs "../../Arguments/Roombot_H14_MxVK1K8py98IKxHc.json"
+  name "Roombot_H14:9"
+  C0XLocked TRUE
+  C3XLocked TRUE
+  C3YLocked TRUE
+}
+Roombot {
+  translation -0.221 0.058 0.221
+  rotation 1 0 0 1.5708
+  controller "ToLController"
+  controllerArgs "../../Arguments/Roombot_H14_MxVK1K8py98IKxHc.json"
+  name "Roombot_H14:10"
+  C3XLocked TRUE
+}
+Roombot {
+  translation -0.221 0.058 -0.221
+  rotation 1 0 0 1.5708
+  controller "ToLController"
+  controllerArgs "../../Arguments/Roombot_H14_MxVK1K8py98IKxHc.json"
+  name "Roombot_H14:11"
+  C0XLocked TRUE
+}
+Roombot {
+  rotation 0.57734 -0.577357 0.577355 2.0944
+  controller "ToLController"
+  controllerArgs "../../Arguments/Roombot_H14_MxVK1K8py98IKxHc.json"
+  name "Roombot_H14:12"
+  C0XLocked TRUE
+  C3XLocked TRUE
+}
+Supervisor {
+  children [
+    Receiver {
+      channel 1024
+    }
+  ]
+  controller "ToLSupervisor"
+}

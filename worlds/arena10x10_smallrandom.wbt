@@ -1,0 +1,198 @@
+#VRML_SIM V7.4.1 utf8
+WorldInfo {
+  info [
+    "Description"
+    "Author: first name last name <e-mail>"
+    "Date: DD MMM YYYY"
+  ]
+}
+Viewpoint {
+  fieldOfView 0.78539
+  orientation -0.27344 -0.901991 -0.334129 2.07344
+  position -15.7518 16.6864 -5.83824
+}
+Background {
+  skyColor [
+    0.4 0.7 1
+  ]
+}
+DirectionalLight {
+  direction -10 -10 -10
+  intensity 0.45
+}
+DirectionalLight {
+  direction -10 -10 10
+  intensity 0.45
+}
+DirectionalLight {
+  direction 10 -10 10
+  intensity 0.45
+}
+DirectionalLight {
+  direction 10 -10 -10
+  intensity 0.45
+}
+RectangleArena {
+  floorSize 10 10
+  floorTileSize 2 2
+  wallThickness 0.05
+  wallHeight 0.2
+}
+DEF MODULE_1 Roombot {
+  translation 4 0.058 -4
+  name "Roombot:1"
+}
+DEF MODULE_2 Roombot {
+  translation 4 0.058 -3
+  name "Roombot:2"
+}
+DEF MODULE_3 Roombot {
+  translation 4 0.058 -2
+  name "Roombot:3"
+}
+DEF MODULE_4 Roombot {
+  translation 4 0.058 -1
+  name "Roombot:4"
+}
+DEF MODULE_5 Roombot {
+  translation 4 0.058 0
+  name "Roombot:5"
+}
+DEF MODULE_6 Roombot {
+  translation 4 0.058 1
+  name "Roombot:6"
+}
+DEF MODULE_7 Roombot {
+  translation 4 0.058 2
+  name "Roombot:7"
+}
+DEF MODULE_8 Roombot {
+  translation 4 0.058 3
+  name "Roombot:8"
+}
+DEF MODULE_9 Roombot {
+  translation 4 0.058 4
+  name "Roombot:9"
+}
+DEF MODULE_10 Roombot {
+  translation 3 0.058 -4
+  name "Roombot:10"
+}
+DEF MODULE_11 Roombot {
+  translation 3 0.058 -3
+  name "Roombot:11"
+}
+DEF MODULE_12 Roombot {
+  translation 3 0.058 -2
+  name "Roombot:12"
+}
+DEF MODULE_13 Roombot {
+  translation 3 0.058 -1
+  name "Roombot:13"
+}
+DEF MODULE_14 Roombot {
+  translation 3 0.058 0
+  name "Roombot:14"
+}
+DEF MODULE_15 Roombot {
+  translation 3 0.058 1
+  name "Roombot:15"
+}
+DEF MODULE_16 Roombot {
+  translation 3 0.058 2
+  name "Roombot:16"
+}
+DEF MODULE_17 Roombot {
+  translation 3 0.058 3
+  name "Roombot:17"
+}
+DEF MODULE_18 Roombot {
+  translation 3 0.058 4
+  name "Roombot:18"
+}
+DEF MODULE_19 Roombot {
+  translation 2 0.058 -4
+  name "Roombot:19"
+}
+DEF MODULE_20 Roombot {
+  translation 2 0.058 -3
+  name "Roombot:20"
+}
+DEF MODULE_21 Roombot {
+  translation 2 0.058 -2
+  name "Roombot:21"
+}
+DEF MODULE_22 Roombot {
+  translation 2 0.058 -1
+  name "Roombot:22"
+}
+DEF MODULE_23 Roombot {
+  translation 2 0.058 0
+  name "Roombot:23"
+}
+DEF MODULE_24 Roombot {
+  translation 2 0.058 1
+  name "Roombot:24"
+}
+DEF MODULE_25 Roombot {
+  translation 2 0.058 2
+  name "Roombot:25"
+}
+DEF MODULE_26 Roombot {
+  translation 2 0.058 3
+  name "Roombot:26"
+}
+DEF MODULE_27 Roombot {
+  translation 2 0.058 4
+  name "Roombot:27"
+}
+DEF MODULE_28 Roombot {
+  translation 1 0.058 -4
+  name "Roombot:28"
+}
+DEF MODULE_29 Roombot {
+  translation 1 0.058 -3
+  name "Roombot:29"
+}
+DEF MODULE_30 Roombot {
+  translation 1 0.058 -2
+  name "Roombot:30"
+}
+DEF CLINIC Supervisor {
+  translation 0 0.25 0
+  children [
+    Emitter {
+      name "Emitter"
+    }
+    Receiver {
+      channel 1001
+    }
+    Solid {
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              diffuseColor 1 1 1
+              transparency 0.6
+            }
+          }
+          geometry Cylinder {
+            height 0.5
+            subdivision 24
+          }
+        }
+      ]
+    }
+  ]
+  controller "BirthClinicController"
+}
+DEF EVOLVER Supervisor {
+  children [
+    Emitter {
+    }
+    Receiver {
+      channel 1000
+    }
+  ]
+  controller "EvolverController"
+}
