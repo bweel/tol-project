@@ -162,7 +162,6 @@ DEF CLINIC Supervisor {
   translation 0 0.25 0
   children [
     Emitter {
-      name "Emitter"
     }
     Receiver {
       channel 1001
