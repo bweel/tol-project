@@ -32,6 +32,10 @@ Robot {
       channel 12
       name "Emitter"
     }
+    Receiver {
+      channel 1003
+      name "DeathReceiver"
+    }
     Accelerometer {
     	name "Accelerometer"
     }
