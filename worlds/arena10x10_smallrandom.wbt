@@ -8,8 +8,8 @@ WorldInfo {
 }
 Viewpoint {
   fieldOfView 0.78539
-  orientation -0.27344 -0.901991 -0.334129 2.07344
-  position -15.7518 16.6864 -5.83824
+  orientation -0.248983 -0.925548 -0.285251 2.01726
+  position -25.4544 17.9046 -9.12238
 }
 Background {
   skyColor [
@@ -33,10 +33,10 @@ DirectionalLight {
   intensity 0.45
 }
 RectangleArena {
-  floorSize 10 10
+  floorSize 20 20
   floorTileSize 2 2
-  wallThickness 0.05
-  wallHeight 0.2
+  wallThickness 0.3
+  wallHeight 1
 }
 DEF MODULE_1 Roombot {
   translation 4 0.058 -4
@@ -165,22 +165,6 @@ DEF CLINIC Supervisor {
     }
     Receiver {
       channel 1001
-    }
-    Solid {
-      children [
-        Shape {
-          appearance Appearance {
-            material Material {
-              diffuseColor 1 1 1
-              transparency 0.6
-            }
-          }
-          geometry Cylinder {
-            height 0.5
-            subdivision 24
-          }
-        }
-      ]
     }
   ]
   controller "BirthClinicController"
