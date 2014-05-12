@@ -5,11 +5,18 @@ WorldInfo {
     "Author: first name last name <e-mail>"
     "Date: DD MMM YYYY"
   ]
+  contactProperties [
+    ContactProperties {
+      material2 "slippery"
+      coulombFriction 0
+      bounce 0
+    }
+  ]
 }
 Viewpoint {
   fieldOfView 0.78539
-  orientation -0.248983 -0.925548 -0.285251 2.01726
-  position -25.4544 17.9046 -9.12238
+  orientation -0.277512 -0.911254 -0.304309 1.97529
+  position -30.2545 24.0467 -5.97224
 }
 Background {
   skyColor [
@@ -34,132 +41,235 @@ DirectionalLight {
 }
 RectangleArena {
   floorSize 20 20
+  floorTextureUrl [
+    "textures/grid.png"
+  ]
   floorTileSize 2 2
   wallThickness 0.3
   wallHeight 1
 }
+DEF SLIDE_1 Solid {
+  translation -10 0 10
+  rotation 0.57735 0.57735 0.57735 0
+  children [
+    DEF SLIDE_SHAPE Shape {
+      geometry IndexedFaceSet {
+        coord Coordinate {
+          point [
+            0 0 -3
+            0 0 0
+            3 0 0
+            0 0 -3
+            0 1 0
+          ]
+        }
+        coordIndex [
+          0, 4, 3, -1, 1, 4, 0, -1, 2, 4
+          1, -1, 3, 4, 2, -1, 0, 3, 2, 1
+        ]
+      }
+    }
+  ]
+  contactMaterial "slippery"
+  boundingObject USE SLIDE_SHAPE
+}
+DEF SLIDE_2 Solid {
+  translation -10 0 -10
+  rotation 0 1 0 4.71239
+  children [
+    DEF SLIDE_SHAPE Shape {
+      geometry IndexedFaceSet {
+        coord Coordinate {
+          point [
+            0 0 -3
+            0 0 0
+            3 0 0
+            0 0 -3
+            0 1 0
+          ]
+        }
+        coordIndex [
+          0, 4, 3, -1, 1, 4, 0, -1, 2, 4
+          1, -1, 3, 4, 2, -1, 0, 3, 2, 1
+        ]
+      }
+    }
+  ]
+  contactMaterial "slippery"
+  boundingObject USE SLIDE_SHAPE
+}
+DEF SLIDE_3 Solid {
+  translation 10 0 -10
+  rotation 0 1 0 3.14159
+  children [
+    DEF SLIDE_SHAPE Shape {
+      geometry IndexedFaceSet {
+        coord Coordinate {
+          point [
+            0 0 -3
+            0 0 0
+            3 0 0
+            0 0 -3
+            0 1 0
+          ]
+        }
+        coordIndex [
+          0, 4, 3, -1, 1, 4, 0, -1, 2, 4
+          1, -1, 3, 4, 2, -1, 0, 3, 2, 1
+        ]
+      }
+    }
+  ]
+  contactMaterial "slippery"
+  boundingObject USE SLIDE_SHAPE
+}
+DEF SLIDE_4 Solid {
+  translation 10 0 10
+  rotation 0 -1 0 4.71239
+  children [
+    DEF SLIDE_SHAPE Shape {
+      geometry IndexedFaceSet {
+        coord Coordinate {
+          point [
+            0 0 -3
+            0 0 0
+            3 0 0
+            0 0 -3
+            0 1 0
+          ]
+        }
+        coordIndex [
+          0, 4, 3, -1, 1, 4, 0, -1, 2, 4
+          1, -1, 3, 4, 2, -1, 0, 3, 2, 1
+        ]
+      }
+    }
+  ]
+  contactMaterial "slippery"
+  boundingObject USE SLIDE_SHAPE
+}
 DEF MODULE_1 Roombot {
-  translation 4 0.058 -4
+  translation 7 0.058 -6
   name "Roombot:1"
 }
 DEF MODULE_2 Roombot {
-  translation 4 0.058 -3
+  translation 7 0.058 -7
   name "Roombot:2"
 }
 DEF MODULE_3 Roombot {
-  translation 4 0.058 -2
+  translation 9 0.058 -7
   name "Roombot:3"
 }
 DEF MODULE_4 Roombot {
-  translation 4 0.058 -1
+  translation 9 0.058 -6
   name "Roombot:4"
 }
 DEF MODULE_5 Roombot {
-  translation 4 0.058 0
+  translation 9 0.058 -5
   name "Roombot:5"
 }
 DEF MODULE_6 Roombot {
-  translation 4 0.058 1
+  translation 9 0.058 -4
   name "Roombot:6"
 }
 DEF MODULE_7 Roombot {
-  translation 4 0.058 2
+  translation 9 0.058 -3
   name "Roombot:7"
 }
 DEF MODULE_8 Roombot {
-  translation 4 0.058 3
+  translation 9 0.058 -2
   name "Roombot:8"
 }
 DEF MODULE_9 Roombot {
-  translation 4 0.058 4
+  translation 9 0.058 -1
   name "Roombot:9"
 }
 DEF MODULE_10 Roombot {
-  translation 3 0.058 -4
+  translation 9 0.058 0
   name "Roombot:10"
 }
 DEF MODULE_11 Roombot {
-  translation 3 0.058 -3
+  translation 9 0.058 1
   name "Roombot:11"
 }
 DEF MODULE_12 Roombot {
-  translation 3 0.058 -2
+  translation 9 0.058 2
   name "Roombot:12"
 }
 DEF MODULE_13 Roombot {
-  translation 3 0.058 -1
+  translation 9 0.058 3
   name "Roombot:13"
 }
 DEF MODULE_14 Roombot {
-  translation 3 0.058 0
+  translation 9 0.058 4
   name "Roombot:14"
 }
 DEF MODULE_15 Roombot {
-  translation 3 0.058 1
+  translation 9 0.058 5
   name "Roombot:15"
 }
 DEF MODULE_16 Roombot {
-  translation 3 0.058 2
+  translation 9 0.058 6
   name "Roombot:16"
 }
 DEF MODULE_17 Roombot {
-  translation 3 0.058 3
+  translation 9 0.058 7
   name "Roombot:17"
 }
 DEF MODULE_18 Roombot {
-  translation 3 0.058 4
+  translation 8 0.058 2
   name "Roombot:18"
 }
 DEF MODULE_19 Roombot {
-  translation 2 0.058 -4
+  translation 8 0.058 3
   name "Roombot:19"
 }
 DEF MODULE_20 Roombot {
-  translation 2 0.058 -3
+  translation 7 0.058 -4
   name "Roombot:20"
 }
 DEF MODULE_21 Roombot {
-  translation 2 0.058 -2
+  translation 7 0.058 -5
   name "Roombot:21"
 }
 DEF MODULE_22 Roombot {
-  translation 2 0.058 -1
+  translation 8 0.058 -7
   name "Roombot:22"
 }
 DEF MODULE_23 Roombot {
-  translation 2 0.058 0
+  translation 8 0.058 -6
   name "Roombot:23"
 }
 DEF MODULE_24 Roombot {
-  translation 2 0.058 1
+  translation 8 0.058 -5
   name "Roombot:24"
 }
 DEF MODULE_25 Roombot {
-  translation 2 0.058 2
+  translation 8 0.058 -4
   name "Roombot:25"
 }
 DEF MODULE_26 Roombot {
-  translation 2 0.058 3
+  translation 8 0.058 -3
   name "Roombot:26"
 }
 DEF MODULE_27 Roombot {
-  translation 2 0.058 4
+  translation 8 0.058 -2
   name "Roombot:27"
 }
 DEF MODULE_28 Roombot {
-  translation 1 0.058 -4
+  translation 8 0.058 -1
   name "Roombot:28"
 }
 DEF MODULE_29 Roombot {
-  translation 1 0.058 -3
+  translation 8 0.058 0
   name "Roombot:29"
 }
 DEF MODULE_30 Roombot {
-  translation 1 0.058 -2
+  translation 8 0.058 1
   name "Roombot:30"
 }
 DEF CLINIC Supervisor {
-  translation 0 0.25 0
+  translation 0 0.5 0
   children [
     Emitter {
     }
