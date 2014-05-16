@@ -4,3 +4,8 @@ DerivedData
 .DS_Store
 Results/*
 Arguments/*
+controllers/BirthClinicController/BirthClinicController.orig
+controllers/EnvironmentModifierController/EnvironmentModifierController.orig
+controllers/EvolverController/EvolverController.orig
+controllers/RoombotController/RoombotController.orig
+controllers/ScreenshotController/ScreenshotController.orig
