@@ -5,3 +5,8 @@ DerivedData
 Results/*
 Arguments/*
 ScreenshotController
+*.wbproj
+controllers/BirthClinicController/BirthClinicController
+controllers/EnvironmentModifierController/EnvironmentModifierController
+controllers/EvolverController/EvolverController
+controllers/RoombotController/RoombotController
