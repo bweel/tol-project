@@ -1,0 +1,7 @@
+syntax: glob
+DerivedData
+
+.DS_Store
+Results/*
+Arguments/*
+ScreenshotController
