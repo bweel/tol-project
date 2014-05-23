@@ -1,0 +1,36 @@
+#VRML_SIM V7.4.1 utf8
+WorldInfo {
+  info [
+    "Description"
+    "Author: first name last name <e-mail>"
+    "Date: DD MMM YYYY"
+  ]
+  contactProperties [
+    ContactProperties {
+      material1 "asdf"
+    }
+  ]
+}
+Viewpoint {
+  orientation 0.989512 0.135383 -0.0503801 5.70438
+  position 0.0383997 0.968939 1.57623
+}
+Background {
+  skyColor [
+    0.4 0.7 1
+  ]
+}
+DirectionalLight {
+  ambientIntensity 1
+  direction -0.33 -1 -0.5
+  castShadows TRUE
+}
+RectangleArena {
+  contactMaterial "asdf"
+}
+Roombot {
+  translation 0 0.0549197 0
+  rotation 1 0 0 1.5708
+  C0XLocked TRUE
+  C3XLocked TRUE
+}
