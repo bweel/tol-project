@@ -93,7 +93,7 @@ int main(int argc, char **argv)
         worldFile << "DEF MODULE_" + idx + " Roombot { translation " + x + " 0.058 " + z + " name \"Roombot:" + idx + "\" } ";
     }
     
-    worldFile << "DEF CLINIC Supervisor { translation 0 0.5 0 children [ Emitter { } Receiver { } ] controller \"BirthClinicController\" } DEF EVOLVER Supervisor { children [ Emitter { } Receiver { } ] controller \"EvolverController\" } DEF MODIFIER Supervisor { children [ Emitter { } Receiver { } ] controller \"EnvironmentModifierController\" } DEF SCREENSHOTS Supervisor { children [ Receiver { } ] controller \"ScreenshotController\" } ";
+    worldFile << "DEF CLINIC Supervisor { translation 0 0.5 0 children [ Emitter { } Receiver { } ] controller \"BirthClinicController\" } DEF EVOLVER Supervisor { children [ Emitter { } Receiver { } ] controller \"EvolverController\" } DEF MODIFIER Supervisor { children [ Emitter { } Receiver { } ] controller \"EnvironmentModifierController\" } DEF SCREENSHOTS Supervisor { children [ Receiver { } ] controller \"ScreenshotController\" } DEF TIMING Supervisor {name \"TimingSupervisor\" controller \"TimingController\" }";
     
     worldFile.close();
 
