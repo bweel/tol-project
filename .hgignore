@@ -11,3 +11,4 @@ controllers/EnvironmentModifierController/EnvironmentModifierController
 controllers/EvolverController/EvolverController
 controllers/RoombotController/RoombotController
 worldFileWriter/dist
+TimingController
