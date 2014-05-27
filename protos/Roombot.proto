@@ -36,6 +36,13 @@ Robot {
       channel 1003
       name "DeathReceiver"
     }
+    Emitter {
+      name "GenomeEmitter"
+      range 2
+    }
+    Receiver {
+      name "GenomeReceiver"
+    }
     Accelerometer {
     	name "Accelerometer"
     }
