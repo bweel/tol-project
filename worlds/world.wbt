@@ -16,8 +16,8 @@ WorldInfo {
 }
 Viewpoint {
   fieldOfView 0.78539
-  orientation -0.247418 -0.93182 -0.265511 1.96088
-  position -31.1922 20.4769 -11.3495
+  orientation -0.232241 -0.949349 -0.21166 1.83095
+  position -34.1784 17.596 -7.75801
 }
 Background {
   skyColor [
@@ -609,6 +609,15 @@ DEF MODIFIER Supervisor {
 }
 DEF SCREENSHOTS Supervisor {
   children [
+    Camera {
+      translation 0 6.5 0
+      rotation 0 0.707107 0.707107 3.1415
+      width 256
+      height 256
+      maxRange 15
+      windowPosition 1 1
+      antiAliasing TRUE
+    }
     Receiver {
     }
   ]
