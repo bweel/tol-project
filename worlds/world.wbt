@@ -16,8 +16,8 @@ WorldInfo {
 }
 Viewpoint {
   fieldOfView 0.78539
-  orientation -0.232241 -0.949349 -0.21166 1.83095
-  position -34.1784 17.596 -7.75801
+  orientation -0.297522 -0.909481 -0.290388 1.86939
+  position -32.3612 19.9752 -7.53242
 }
 Background {
   skyColor [
