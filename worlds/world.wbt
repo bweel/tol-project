@@ -51,6 +51,7 @@ CircleArena {
   subdivision 128
 }
 DEF CLINIC_PLATFORM Solid {
+  translation 0 -1.5 0
   rotation 0.57735 0.57735 0.57735 0
   children [
     DEF CLINIC_PLATFORM_SHAPE Shape {
