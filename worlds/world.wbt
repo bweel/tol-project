@@ -419,6 +419,23 @@ DEF CLINIC_PLATFORM Solid {
   contactMaterial "slippery"
   boundingObject USE CLINIC_PLATFORM_SHAPE
 }
+Solid {
+  children [
+    Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 0.42295 0.8 0.131441
+          transparency 0.8
+        }
+      }
+      geometry Cylinder {
+        height 0.1
+        radius 7
+        subdivision 128
+      }
+    }
+  ]
+}
 DEF MODULE_1 Roombot {
   translation -5 0.058 -5
   name "Roombot:1"
