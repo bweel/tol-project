@@ -17,7 +17,7 @@ WorldInfo {
 Viewpoint {
   fieldOfView 0.78539
   orientation -0.297522 -0.909481 -0.290388 1.86939
-  position -32.3612 19.9752 -7.53242
+  position -37.2068 27.9927 -6.17963
 }
 Background {
   skyColor [
@@ -420,7 +420,7 @@ DEF CLINIC_PLATFORM Solid {
   contactMaterial "slippery"
   boundingObject USE CLINIC_PLATFORM_SHAPE
 }
-Solid {
+DEF FERTILITY_CIRCLE Solid {
   children [
     Shape {
       appearance Appearance {
@@ -431,7 +431,7 @@ Solid {
       }
       geometry Cylinder {
         height 0.1
-        radius 7
+        radius 5
         subdivision 128
       }
     }
@@ -596,6 +596,34 @@ DEF MODULE_39 Roombot {
 DEF MODULE_40 Roombot {
   translation 4 0.058 -2
   name "Roombot:40"
+}
+DEF MODULE_41 Roombot {
+  translation -5 0.058 -1
+  name "Roombot:41"
+}
+DEF MODULE_42 Roombot {
+  translation -4 0.058 -1
+  name "Roombot:42"
+}
+DEF MODULE_43 Roombot {
+  translation -3 0.058 -1
+  name "Roombot:43"
+}
+DEF MODULE_44 Roombot {
+  translation -2 0.058 -1
+  name "Roombot:44"
+}
+DEF MODULE_45 Roombot {
+  translation -1 0.058 -1
+  name "Roombot:45"
+}
+DEF MODULE_46 Roombot {
+  translation 0 0.058 -1
+  name "Roombot:46"
+}
+DEF MODULE_47 Roombot {
+  translation 1 0.058 -1
+  name "Roombot:47"
 }
 DEF CLINIC Supervisor {
   translation 0 0.5 0
