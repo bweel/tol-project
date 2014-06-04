@@ -5,8 +5,8 @@
 
 static std::string getSlicedCylinder()
 {
-    int h = 3;
-    int r = 2;
+    double h = 1.5;
+    double r = 2;
     double slope_factor = 0.7;
     double pi = 3.14159;
     int subdivisions = 128;
@@ -84,7 +84,7 @@ int main(int argc, char **argv)
 
     worldFile << " } ] contactMaterial \"slippery\" boundingObject USE CLINIC_PLATFORM_SHAPE } ";
 
-    for (int i = 0; i < 40; i++)
+    for (int i = 0; i < 50; i++)
     {
         std::string x = std::to_string((i % 10) - 5);
         std::string z = std::to_string((i / 10) - 5);
