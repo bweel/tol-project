@@ -1,11 +1,12 @@
 #include <fstream>
 #include <vector>
 #include <math.h>
+#include <iostream>
 
 
 static std::string getSlicedCylinder()
 {
-    double h = 1.5;
+    double h = 1.6;
     double r = 2;
     double slope_factor = 0.7;
     double pi = 3.14159;
@@ -73,10 +74,25 @@ static std::string getSlicedCylinder()
 
 int main(int argc, char **argv)
 {
+    if (argc < 3)
+    {
+        std::cout << "not enough arguments" << std::endl;
+        return 0;
+    }
+    
+    std::string type = argv[1];
+    int numberOfModules = std::atoi(argv[2]);
+    
+    if (type.compare("D") != 0 && type.compare("C") != 0)
+    {
+        std::cout << "specify world type: C for centralized and D for distributed" << std::endl;
+        return 0;
+    }
+    
     std::ofstream worldFile;
     worldFile.open("world.wbt");
     
-    worldFile << "#VRML_SIM V7.4.3 utf8 \n WorldInfo { info [ \"Description\" \"Author: first name last name <e-mail>\" \"Date: DD MMM YYYY\" ] contactProperties [ ContactProperties { material2 \"slippery\" coulombFriction 0 bounce 0 } ] } Viewpoint { fieldOfView 0.78539 orientation -0.247418 -0.93182 -0.265511 1.96088 position -31.1922 20.4769 -11.3495 } Background { skyColor [ 0.4 0.7 1 ] } DirectionalLight { direction -10 -10 -10 intensity 0.45 } DirectionalLight { direction -10 -10 10 intensity 0.45 } DirectionalLight { direction 10 -10 10 intensity 0.45 } DirectionalLight { direction 10 -10 -10 intensity 0.45 } CircleArena { radius 15 floorTextureUrl [ \"textures/grid.png\" ] floorTileSize 1 1 wallThickness 0.3 wallHeight 1.5 subdivision 128 } ";
+    worldFile << "#VRML_SIM V7.4.3 utf8 \n WorldInfo { info [ \"Description\" \"Author: first name last name <e-mail>\" \"Date: DD MMM YYYY\" ] contactProperties [ ContactProperties { material2 \"slippery\" coulombFriction 0 bounce 0 } ] } Viewpoint { fieldOfView 0.78539 orientation -0.297522 -0.909481 -0.290388 1.86939 position -37.2068 27.9927 -6.17963 } Background { skyColor [ 0.4 0.7 1 ] } DirectionalLight { direction -10 -10 -10 intensity 0.45 } DirectionalLight { direction -10 -10 10 intensity 0.45 } DirectionalLight { direction 10 -10 10 intensity 0.45 } DirectionalLight { direction 10 -10 -10 intensity 0.45 } CircleArena { radius 15 floorTextureUrl [ \"textures/grid.png\" ] floorTileSize 1 1 wallThickness 0.3 wallHeight 1.5 subdivision 128 } ";
     
     worldFile << "DEF CLINIC_PLATFORM Solid { rotation 0.57735 0.57735 0.57735 0 children [ DEF CLINIC_PLATFORM_SHAPE Shape { appearance Appearance { material Material { diffuseColor 1 1 1 transparency 0.5 } } geometry ";
     
@@ -84,7 +100,12 @@ int main(int argc, char **argv)
 
     worldFile << " } ] contactMaterial \"slippery\" boundingObject USE CLINIC_PLATFORM_SHAPE } ";
 
-    for (int i = 0; i < 50; i++)
+    if (type.compare("D") == 0)
+    {
+        worldFile << "DEF FERTILITY_CIRCLE Solid { children [ Shape { appearance Appearance { material Material { diffuseColor 0.42295 0.8 0.131441 transparency 0.8 } } geometry Cylinder { height 0.1 radius 5 subdivision 128 } } ] } ";
+    }
+    
+    for (int i = 0; i < numberOfModules; i++)
     {
         std::string x = std::to_string((i % 10) - 5);
         std::string z = std::to_string((i / 10) - 5);
@@ -93,7 +114,7 @@ int main(int argc, char **argv)
         worldFile << "DEF MODULE_" + idx + " Roombot { translation " + x + " 0.058 " + z + " name \"Roombot:" + idx + "\" } ";
     }
     
-    worldFile << "DEF CLINIC Supervisor { translation 0 0.5 0 children [ Emitter { } Receiver { } ] controller \"BirthClinicController\" } DEF EVOLVER Supervisor { children [ Emitter { } Receiver { } ] controller \"EvolverController\" } DEF MODIFIER Supervisor { children [ Emitter { } Receiver { } ] controller \"EnvironmentModifierController\" } DEF SCREENSHOTS Supervisor { children [ Receiver { } ] controller \"ScreenshotController\" } DEF TIMING Supervisor {name \"TimingSupervisor\" controller \"TimingController\" }";
+    worldFile << "DEF CLINIC Supervisor { translation 0 0.5 0 children [ Emitter { } Receiver { } ] controller \"BirthClinicController\" } DEF EVOLVER Supervisor { children [ Emitter { } Receiver { } ] controller \"EvolverController\" } DEF MODIFIER Supervisor { children [ Emitter { } Receiver { } ] controller \"EnvironmentModifierController\" } DEF SCREENSHOTS Supervisor { children [ Camera { translation 0 6.5 0 rotation 0 0.707107 0.707107 3.1415 width 256 height 256 maxRange 15 windowPosition 1 1 antiAliasing TRUE } Receiver { } ] controller \"ScreenshotController\" } DEF TIMING Supervisor {name \"TimingSupervisor\" controller \"TimingController\" }";
     
     worldFile.close();
 
