@@ -12,3 +12,5 @@ controllers/EvolverController/EvolverController
 controllers/RoombotController/RoombotController
 worldFileWriter/dist
 TimingController
+archive
+*.log
