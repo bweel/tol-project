@@ -1,0 +1,14 @@
+syntax: glob
+DerivedData
+
+.DS_Store
+Results/*
+Arguments/*
+ScreenshotController
+*.wbproj
+controllers/BirthClinicController/BirthClinicController
+controllers/EnvironmentModifierController/EnvironmentModifierController
+controllers/EvolverController/EvolverController
+controllers/RoombotController/RoombotController
+worldFileWriter/dist
+TimingController
