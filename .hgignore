@@ -10,6 +10,8 @@ controllers/BirthClinicController/BirthClinicController
 controllers/EnvironmentModifierController/EnvironmentModifierController
 controllers/EvolverController/EvolverController
 controllers/RoombotController/RoombotController
+controllers/DeathController/DeathController
+controllers/LifeController/LifeController
 worldFileWriter/dist
 TimingController
 archive
