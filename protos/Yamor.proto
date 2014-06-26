@@ -1,0 +1,166 @@
+PROTO Yamor [
+  field SFString Name "Yamor:0"
+  field SFString Controller "void"
+  field SFString Arguments ""    
+  field SFVec3f Translation 0 0.024 0
+  field SFRotation Rotation 0 1 0 0
+  field SFBool Connector_0_Locked FALSE
+  field SFBool Connector_1_Locked FALSE
+  field SFBool Connector_2_Locked FALSE
+  field SFBool Connector_3_Locked FALSE
+]
+{
+Robot {
+  name IS Name
+  controller IS Controller
+  controllerArgs IS Arguments
+  translation IS Translation
+  rotation IS Rotation
+  children [
+    GPS {
+      name "GPS"
+    }
+    Emitter {
+      name "Emitter"
+      bufferSize 1048576
+    }
+    Receiver {
+      name "Receiver"
+      bufferSize 1048576
+    }
+    DEF Connector_0 Connector {
+      translation 0.042 0 0
+      rotation 0 1 0 1.5708
+      children [
+        DEF Connector Shape {
+          appearance Appearance {
+            material Material {
+              diffuseColor 1 1 1
+            }
+          }
+          geometry Box {
+            size 0.015 0.015 0.0005
+          }
+        }
+      ]
+      name "Connector_0"
+      isLocked IS Connector_0_Locked
+      distanceTolerance 0.05
+      axisTolerance 0.5
+      rotationTolerance 0.5
+    }
+    DEF Connector_1 Connector {
+      translation 0 0 0.027
+      children [
+        USE Connector
+      ]
+      name "Connector_1"
+      isLocked IS Connector_1_Locked
+      distanceTolerance 0.05
+      axisTolerance 0.5
+      rotationTolerance 0.5
+    }
+    DEF Connector_3 Connector {
+      translation 0 0 -0.027
+      rotation 0 1 0 3.14159
+      children [
+        USE Connector
+      ]
+      name "Connector_3"
+      isLocked IS Connector_3_Locked
+      distanceTolerance 0.05
+      axisTolerance 0.5
+      rotationTolerance 0.5
+    }
+    DEF Body Group {
+      children [
+        DEF Box_1 Transform {
+          translation 0.012 0 0
+          children [
+            Shape {
+              appearance DEF Plastic Appearance {
+                material Material {
+                  diffuseColor 0 1 0
+                }
+              }
+              geometry Box {
+                size 0.06 0.048 0.054
+              }
+            }
+          ]
+        }
+        DEF Cylinder Transform {
+          translation -0.018 0 0
+          rotation 1 0 0 1.5708
+          children [
+            Shape {
+              appearance USE Plastic
+              geometry Cylinder {
+                height 0.054
+                radius 0.024
+                subdivision 24
+              }
+            }
+          ]
+        }
+      ]
+    }
+    DEF Hinge HingeJoint {
+    	jointParameters HingeJointParameters {
+        	axis 0 0 1
+        }
+        device RotationalMotor {
+        	name "m1"
+            maxTorque 1.1
+            controlPID 10 0 0
+			maxVelocity 3.9667
+ 		    minPosition -1.5708
+			maxPosition 1.5708
+        }
+        endPoint Solid {
+      		translation -0.018 0 0
+			rotation 0 0 -1 0
+			children [
+				DEF Connector_2 Connector {
+				  translation -0.037 0 0
+				  rotation 0 1 0 -1.5708
+				  children [
+					USE Connector
+				  ]
+				  name "Connector_2"
+				  isLocked IS Connector_2_Locked
+				  distanceTolerance 0.05
+				  axisTolerance 0.5
+				  rotationTolerance 0.5
+				}
+				DEF Box_2 Transform {
+				  translation -0.0235 0 0
+				  children [
+					Shape {
+					  appearance Appearance {
+						material Material {
+						  diffuseColor 0.5 0.5 0.5
+						}
+					  }
+					  geometry Box {
+						size 0.027 0.015 0.05
+					  }
+					}
+				  ]
+				}
+			  ]
+			  boundingObject USE Box_2
+			  physics Physics {
+				density -1
+				mass 0.016
+			  }
+			}
+	}
+  ]
+  boundingObject USE Body
+  physics DEF Body_P Physics {
+    density -1
+    mass 0.17
+  }
+}
+}
