@@ -12,7 +12,7 @@ one_run()
 	date=`date +"%Y-%m-%d--%H.%M.%S"`
 	outputfile=$1"-"$date".log"
 	
-	/Applications/Webots/webots --minimize --mode=fast --stdout --stderr $1 > $outputfile &
+	/Applications/Webots/webots --minimize --mode=fast --stdout --stderr $1 > $outputfile 2>&1 &
 }
 
 for ((i=1;i<=$1;i++))
