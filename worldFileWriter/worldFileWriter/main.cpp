@@ -92,29 +92,171 @@ int main(int argc, char **argv)
     std::ofstream worldFile;
     worldFile.open("world.wbt");
     
-    worldFile << "#VRML_SIM V7.4.3 utf8 \n WorldInfo { info [ \"Description\" \"Author: first name last name <e-mail>\" \"Date: DD MMM YYYY\" ] basicTimeStep 16 contactProperties [ ContactProperties { material2 \"slippery\" coulombFriction 0 bounce 0 } ] } Viewpoint { fieldOfView 0.78539 orientation -0.297522 -0.909481 -0.290388 1.86939 position -37.2068 27.9927 -6.17963 } Background { skyColor [ 0.4 0.7 1 ] } DirectionalLight { direction -10 -10 -10 intensity 0.45 } DirectionalLight { direction -10 -10 10 intensity 0.45 } DirectionalLight { direction 10 -10 10 intensity 0.45 } DirectionalLight { direction 10 -10 -10 intensity 0.45 } CircleArena { radius 15 floorTextureUrl [ \"textures/grid.png\" ] floorTileSize 1 1 wallThickness 0.3 wallHeight 1.5 subdivision 128 } ";
+    worldFile << "\
+#VRML_SIM V7.4.3 utf8 \n\
+WorldInfo {\n\
+    info [\n\
+        \"Description\"\n\
+        \"Author: first name last name <e-mail>\"\n\
+        \"Date: DD MMM YYYY\"\n\
+    ]\n\
+    basicTimeStep 16\n\
+    contactProperties [\n\
+        ContactProperties {\n\
+            material2 \"slippery\"\n\
+            coulombFriction 0\n\
+            bounce 0\n\
+        }\n\
+    ]\n\
+}\n\
+Viewpoint {\n\
+    fieldOfView 0.78539\n\
+    orientation -0.297522 -0.909481 -0.290388 1.86939\n\
+    position -37.2068 27.9927 -6.17963\n\
+}\n\
+Background {\n\
+    skyColor [ 0.4 0.7 1 ]\n\
+}\n\
+DirectionalLight {\n\
+        direction -10 -10 -10\n\
+        intensity 0.45 \n\
+}\n\
+DirectionalLight {\n\
+        direction -10 -10 10\n\
+        intensity 0.45\n\
+}\n\
+DirectionalLight {\n\
+    direction 10 -10 10\n\
+    intensity 0.45\n\
+}\n\
+DirectionalLight {\n\
+        direction 10 -10 -10\n\
+        intensity 0.45\n\
+}\n\
+CircleArena {\n\
+    radius 15\n\
+    floorTextureUrl [ \"textures/grid.png\" ]\n\
+    floorTileSize 1 1\n\
+    wallThickness 0.3\n\
+    wallHeight 1.5\n\
+    subdivision 128\n\
+}\n";
     
-    worldFile << "DEF CLINIC_PLATFORM Solid { rotation 0.57735 0.57735 0.57735 0 children [ DEF CLINIC_PLATFORM_SHAPE Shape { appearance Appearance { material Material { diffuseColor 1 1 1 transparency 0.5 } } geometry ";
+    worldFile << "\
+DEF CLINIC_PLATFORM Solid {\n\
+    rotation 0.57735 0.57735 0.57735 0\n\
+    children [\n\
+        DEF CLINIC_PLATFORM_SHAPE Shape {\n\
+            appearance Appearance {\n\
+            material Material {\n\
+                diffuseColor 1 1 1\n\
+                transparency 0.5\n\
+        }\n\
+    }\n\
+    geometry\n";
     
     worldFile << getSlicedCylinder();
 
-    worldFile << " } ] contactMaterial \"slippery\" boundingObject USE CLINIC_PLATFORM_SHAPE } ";
+    worldFile << "\n\
+        }\n\
+    ]\n\
+    contactMaterial \"slippery\"\n\
+    boundingObject USE CLINIC_PLATFORM_SHAPE\n\
+}\n";
 
     if (type.compare("D") == 0)
     {
-        worldFile << "DEF FERTILITY_CIRCLE Solid { children [ Shape { appearance Appearance { material Material { diffuseColor 0.42295 0.8 0.131441 transparency 0.8 } } geometry Cylinder { height 0.1 radius 5 subdivision 128 } } ] } ";
+        worldFile << "\
+DEF FERTILITY_CIRCLE Solid {\n\
+    children [\n\
+        Shape {\n\
+            appearance Appearance {\n\
+                material Material {\n\
+                    diffuseColor 0.42295 0.8 0.131441\n\
+                    transparency 0.8\n\
+                }\n\
+            }\n\
+            geometry Cylinder {\n\
+                height 0.1\n\
+                radius 5\n\
+                subdivision 128\n\
+            }\n\
+        }\n\
+    ]\n\
+}\n";
     }
     
+    worldFile << "\
+DEF CLINIC Supervisor {\n\
+    translation 0 0.5 0\n\
+    children [\n\
+        Emitter { }\n\
+        Receiver { }\n\
+    ]\n\
+    controller \"BirthClinicController\"\n\
+}\n\
+DEF EVOLVER Supervisor {\n\
+    children [\n\
+        Emitter { }\n\
+        Receiver { }\n\
+    ]\n\
+    controller \"EvolverController\"\n\
+}\n\
+DEF MODIFIER Supervisor {\n\
+    children [\n\
+        Emitter { }\n\
+        Receiver { }\n\
+    ]\n\
+    controller \"EnvironmentModifierController\"\n\
+}\n\
+DEF SCREENSHOTS Supervisor {\n\
+    children [\n\
+        Transform {\n\
+            translation 0 4.5 0\n\
+            children [\n\
+                  Shape {\n\
+                      appearance Appearance {\n\
+                          material Material {\n\
+                              diffuseColor 0.471931 0.476204 0.489006\n\
+                              shininess 0\n\
+                          }\n\
+                      }\n\
+                      geometry Box {\n\
+                          size 2 0.1 2\n\
+                      }\n\
+                  }\n\
+              ]\n\
+        }\n\
+        Camera {\n\
+            translation 0 6.5 0\n\
+            rotation 0 0.707107 0.707107 3.1415\n\
+            width 256\n\
+            height 256\n\
+            maxRange 15\n\
+            windowPosition 1 1\n\
+            antiAliasing TRUE\n\
+        }\n\
+        Receiver { }\n\
+    ]\n\
+controller \"ScreenshotController\"\n\
+}\n\
+DEF TIMING Supervisor {\n\
+    name \"TimingSupervisor\"\n\
+    controller \"TimingController\"\n\
+}\n";
+
     for (int i = 0; i < numberOfModules; i++)
     {
         std::string x = std::to_string((i % 10) - 5);
         std::string z = std::to_string((i / 10) - 5);
         std::string idx = std::to_string(i+1);
         
-        worldFile << "DEF MODULE_" + idx + " Roombot { translation " + x + " 0.058 " + z + " name \"Roombot:" + idx + "\" } ";
+        worldFile << "\
+DEF MODULE_" + idx + " Roombot {\n\
+    translation " + x + " 0.058 " + z + "\n\
+    name \"Roombot:" + idx + "\"\n\
+}\n";
     }
-    
-    worldFile << "DEF CLINIC Supervisor { translation 0 0.5 0 children [ Emitter { } Receiver { } ] controller \"BirthClinicController\" } DEF EVOLVER Supervisor { children [ Emitter { } Receiver { } ] controller \"EvolverController\" } DEF MODIFIER Supervisor { children [ Emitter { } Receiver { } ] controller \"EnvironmentModifierController\" } DEF SCREENSHOTS Supervisor { children [ Camera { translation 0 6.5 0 rotation 0 0.707107 0.707107 3.1415 width 256 height 256 maxRange 15 windowPosition 1 1 antiAliasing TRUE } Receiver { } ] controller \"ScreenshotController\" } DEF TIMING Supervisor {name \"TimingSupervisor\" controller \"TimingController\" }";
     
     worldFile.close();
 
